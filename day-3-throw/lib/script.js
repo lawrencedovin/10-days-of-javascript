@@ -1,26 +1,12 @@
 'use strict';
 
-function getLetter(s) {
-    let letter;
-    // Write your code here
-    switch(1 <= s.length && s.length <= 100) {
-        case s.charAt(0) === 'a':
-            letter = 'A';
-            break;
-        case s.charAt(0) === 'b':
-            letter = 'B';
-            break;
-        case s.charAt(0) === 'h':
-            letter = 'C';
-            break;
-        case typeof(s) === "string":
-            letter = 'D';
-            break;
-        default:
-            return 'Not a string input';
-            break;
+function isPositive(a) {
+    try {
+        if (a >= 1) return "YES";
+        if (a === 0) throw "Zero Error";
+        if (a < 0) throw "Negative Error";
+    } 
+    catch(error){
+        return error;
     }
-    
-    return letter;
 }
-
