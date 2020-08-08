@@ -17,7 +17,9 @@ Rectangle.prototype.area = function() {
 
 class Square extends Rectangle {
     constructor(side) {
+        // Square only needs 1 parameter for input
         super(side, side);
+        // super from rectangle takes in 2 parameters to work
     }
 }
 
