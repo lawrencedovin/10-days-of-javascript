@@ -1,5 +1,5 @@
 function regexVar(str) {
-        let re = /^(Mr|Mrs|Ms|Dr|Er)\.[a-zA-Z]+/;
+        let re = /^(Mr|Mrs|Ms|Dr|Er)\.[a-zA-Z]+$/;
         return re;
 
         
