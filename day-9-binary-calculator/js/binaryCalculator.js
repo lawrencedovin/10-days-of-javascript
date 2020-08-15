@@ -8,37 +8,65 @@ window.onload = function() {
     let btnSub = document.querySelector("#btnSub");
     let btnMul = document.querySelector("#btnMul");
     let btnDiv = document.querySelector("#btnDiv");
-    result.innerHTML = "Lawrence Pogi";
+    let expression = "";
+    let temp = "";
+
 
     btn0.addEventListener('click', () => {
-        result.innerHTML += "0";
+        expression += "0";
+        result.innerHTML = expression;
     });
 
     btn1.addEventListener('click', () => {
-        result.innerHTML += "1";
+        expression += "1";
+        result.innerHTML = expression;
     });
 
     btnClr.addEventListener('click', () => {
-        result.innerHTML = "";
+        expression = "";
+        result.innerHTML = expression;
     });
 
     btnEql.addEventListener('click', () => {
-        result.innerHTML = "";
+        expression = result.innerHTML;
+            var nums = /(\d+)/g;
+            // Replace all base 2 nums with base 10 equivs
+            expression = expression.replace(nums, function(match) {
+                return parseInt(match, 2);
+            })
+            // eval in base 10 and convert to base 2
+            result.innerHTML = eval(expression).toString(2);
     });
 
     btnSum.addEventListener('click', () => {
-        result.innerHTML += "+";
+        temp = expression.substr(-1);
+        temp == "+" || temp == "-" || temp == "*" || temp == "/" ? 
+        expression = expression.replace(/.$/, "+") : 
+        expression += "+";
+        result.innerHTML = expression;
     });
 
     btnSub.addEventListener('click', () => {
-        result.innerHTML += "-";
+        temp = expression.substr(-1);
+        temp == "+" || temp == "-" || temp == "*" || temp == "/" ? 
+        expression = expression.replace(/.$/, "-") : 
+        expression += "-";
+        result.innerHTML = expression;
     });
 
     btnMul.addEventListener('click', () => {
-        result.innerHTML += "*";
+        temp = expression.substr(-1);
+        temp == "+" || temp == "-" || temp == "*" || temp == "/" ? 
+        expression = expression.replace(/.$/, "*") : 
+        expression += "*";
+        result.innerHTML = expression;
     });
 
     btnDiv.addEventListener('click', () => {
-        result.innerHTML += "/";
+        temp = expression.substr(-1);
+        temp == "+" || temp == "-" || temp == "*" || temp == "/" ? 
+        expression = expression.replace(/.$/, "/") : 
+        expression += "/";
+        result.innerHTML = expression;
     });
 }
